@@ -6,16 +6,16 @@ services:
         ports:
             - "8080:80"
         volumes:
-            - ./www:/code
+            - ./www:/www
             - ./site.conf:/etc/nginx/conf.d/default.conf
         networks:
             - code-network
     php:
         image: php:fpm
         volumes:
-            - ./www:/code
+            - ./www:/www
         networks:
-            - code-network
+            - www-network
 
 networks:
     code-network:
