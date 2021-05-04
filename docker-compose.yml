@@ -1,8 +1,9 @@
-version: '2'
+version: '3'
 
 services:
     web:
         image: nginx:latest
+        container_name: web
         ports:
             - "8080:80"
             - "443:443"
@@ -14,10 +15,24 @@ services:
             - www-network
     php:
         image: php:fpm
+        container_name: php
         volumes:
             - /opt/www:/www
         networks:
             - www-network
+    db:
+        image: mariadb:latest
+        container_name: db
+        environment:
+          MYSQL_DATABASE: db
+          MYSQL_USER: user
+          MYSQL_PASSWORD: test
+          MYSQL_ROOT_PASSWORD: test
+        volumes:
+          - /opt/db:/var/lib/mysql
+        networks:
+          - www-network
+
 
 networks:
     www-network:
