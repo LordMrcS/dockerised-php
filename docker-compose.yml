@@ -14,7 +14,7 @@ services:
         networks:
             - www-network
     php:
-        image: php:fpm
+        build: .
         container_name: php
         volumes:
             - /opt/www:/www
