@@ -1,4 +1,4 @@
-The Docker setup for PHP applications using PHP7-FPM, Nginx and MariaDB
+The Docker setup for PHP applications using PHP-FPM, Nginx and MariaDB
 ## Instructions
 1. Checkout the repository
 * Run `docker-compose up`
