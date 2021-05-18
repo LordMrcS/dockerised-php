@@ -17,6 +17,7 @@ services:
         build: .
         container_name: php
         volumes:
+            - ./php.ini:/usr/local/etc/php/php.ini
             - ./www:/www
         networks:
             - www-network
