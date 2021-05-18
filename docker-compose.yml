@@ -29,10 +29,9 @@ services:
           MYSQL_PASSWORD: test
           MYSQL_ROOT_PASSWORD: test
         volumes:
-          - ./db:/var/lib/mysql
+            - ./db:/var/lib/mysql
         networks:
-          - www-network
-
+            - www-network
 
 networks:
     www-network:
