@@ -8,8 +8,8 @@ services:
             - "8080:80"
             - "443:443"
         volumes:
-            - /opt/www:/www
-            - /opt/cert:/cert
+            - ./www:/www
+            - ./cert:/cert
             - ./sites.conf:/etc/nginx/conf.d/default.conf
         networks:
             - www-network
@@ -17,7 +17,7 @@ services:
         build: .
         container_name: php
         volumes:
-            - /opt/www:/www
+            - ./www:/www
         networks:
             - www-network
     db:
@@ -29,7 +29,7 @@ services:
           MYSQL_PASSWORD: test
           MYSQL_ROOT_PASSWORD: test
         volumes:
-          - /opt/db:/var/lib/mysql
+          - ./db:/var/lib/mysql
         networks:
           - www-network
 
